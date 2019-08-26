@@ -1,4 +1,4 @@
-"""AnimeSuki History views"""
+"""History views"""
 
 import bleach
 
@@ -11,7 +11,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.contrib import messages
 
-from animesuki.core.views import AnimeSukiPermissionMixin, ListViewQueryStringMixin
+from ..core.views import PermissionMessageMixin, ListViewQueryStringMixin
 
 from .forms import HistoryCommentForm
 from .models import ChangeRequest
@@ -63,13 +63,13 @@ class HistoryFormsetViewMixin:
         return HttpResponseRedirect(self.get_success_url())
 
 
-class HistoryDetailView(AnimeSukiPermissionMixin, DetailView):
+class HistoryDetailView(PermissionMessageMixin, DetailView):
     permission_required = 'history.view_changerequest'
     template_name = 'history/detail.html'
     model = ChangeRequest
 
 
-class HistoryListView(AnimeSukiPermissionMixin, ListViewQueryStringMixin, ListView):
+class HistoryListView(PermissionMessageMixin, ListViewQueryStringMixin, ListView):
     permission_required = 'history.view_changerequest'
     template_name = 'history/list.html'
     model = ChangeRequest

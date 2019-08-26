@@ -1,4 +1,4 @@
-"""AnimeSuki History Admin models"""
+"""History Admin models"""
 
 from django import forms
 from django.contrib import admin

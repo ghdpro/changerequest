@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 from django.test import TestCase
 
-from animesuki.core.models import Language
+from ..core.models import Language
 from .models import object_to_dict, object_data_revert, changed_keys, filter_data
 
 class HistoryTest(TestCase):

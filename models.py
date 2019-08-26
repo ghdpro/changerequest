@@ -18,8 +18,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.postgres.fields import JSONField
 from django.contrib import messages
 
-from animesuki.core.utils import get_ip_from_request
-from animesuki.core.models import Option
+from ..core.utils import get_ip_from_request
+from ..core.models import Option
 
 logger = logging.getLogger(__name__)
 
@@ -381,7 +381,7 @@ class HistoryModel(models.Model):
         """Checks conditions that will disallow any changes from being processed at all."""
         # If first run outside clean() this function may cause a fatal error (raises exceptions in wrong places)
         if not self.request.user.is_authenticated:
-            # Reaching this point should be impossible: changerequest.set_user() assumes user is AnimeSukiUser instance
+            # Reaching this point should be impossible: changerequest.set_user() assumes user is custom User instance
             # Therefore an unauthenticated (anonymous) user will get a fatal error before this code is run
             raise ValidationError('You need to be logged in to perform this action.', code='user-not-authenticated')
         if not self.request.user.is_active:

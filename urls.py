@@ -1,4 +1,4 @@
-"""AnimeSuki History URLs"""
+"""History URLs"""
 
 from django.urls import path
 

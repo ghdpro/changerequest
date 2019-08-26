@@ -1,4 +1,4 @@
-"""AnimeSuki History forms"""
+"""History forms"""
 
 from django import forms
 
